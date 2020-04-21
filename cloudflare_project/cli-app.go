@@ -23,7 +23,9 @@ type IPAddress struct {
 }
 
 // In the process of understanding how to implement IPV6 support and
-// reporting TTL "time exceeded" messages.
+// reporting TTL "time exceeded" messages. For right now I just gave the user
+// the ability to set the TTL of the IPv4PacketConn it doesn't acutally handle
+// the time exceeded messages.
 func main() {
 
 	var addr IPAddress
@@ -68,8 +70,8 @@ func main() {
 func GetInput() (addr net.IP, hostname string, ttl int) {
 	fmt.Println("Enter a hostname or IP address:")
 	var input string
-	//	fmt.Scanln(&input)
-	input = "8.8.4.4"
+	fmt.Scanln(&input)
+
 	fmt.Println("Enter TTL: ")
 
 	fmt.Scanln(&ttl)
